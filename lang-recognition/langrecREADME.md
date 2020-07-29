@@ -28,9 +28,9 @@ The same applies for the gun violence data. The code for gun violence bill extra
  
 The method has four parameters: sentences, topic, terms1, and terms2. 'sentences' is a list of sentences that makes up the bill text after cleaning. 'topic' is the overall topic to parse for, such as 'de-escalation' for the issue of de-escalation training. 'terms1' is a list of terms that carry more weight when present, and 'terms2' is a list of terms that carry less weight than terms1 but still contribute to the score. 
 
-First, the sentences list is parsed to find all "relevant sentences,"  or any sentence with the 'topic' present. Then, the revelant sentences are parsed to search for the presence of a word from terms1 or terms2 and the score increases by 0.5 and 0.05 respectively. To increase accuracy, the method also parses the sentences preceeding and succeeding a relevant sentence, as long as it is not already listed in the relevant sentences. Finally, a score can be reduced if on of the following words are present in the relevant sentences: ['except','sensitive','unless','limit']. These words result in a reduction because of their tendency to coincide with a lack of support for an issue. 
+First, the sentences list is parsed to find all "relevant sentences,"  or any sentence with the 'topic' present. Then, the revelant sentences are parsed to search for the presence of a word from terms1 or terms2 and the score increases by 0.5 and 0.05 respectively. To increase accuracy, the method also parses the sentences preceeding and succeeding a relevant sentence, as long as it is not already listed in the relevant sentences. Finally, a score can be reduced if one of the following words are present in the relevant sentences: ['except','sensitive','unless','limit']. These words result in a reduction because of their tendency to coincide with a lack of support for an issue. 
 
-It is worth noting that the terms1 list has a significantly large weight of 0.5 in comparison to 0.05. This is because there are often instances where there is not enough text on an issue to indicate full support, yet the writing of the bill succinctly established full support. An example is a 'banning'. Many bills include a ban of some sort, which does not always require an extensive description. The ban is estbalished and not written about again. Therefore, a word such as 'ban' may belong in terms1, and any issue lacking extensive textual evidence may require more words entered into the terms1 list. 
+It is worth noting that the terms1 list has a significantly large weight of 0.5 in comparison to 0.05. This is because there are often instances where there is not enough text on an issue to indicate full support, yet the writing of the bill succinctly establishes full support. An example is a 'banning'. Many bills include a ban of some sort, which does not always require an extensive description. The ban is estbalished and not written about again. Therefore, a word such as 'ban' may belong in terms1, and any issue lacking extensive textual evidence may require more words entered into the terms1 list. 
 
 
 ### Findings 
@@ -53,13 +53,13 @@ Repub Use of Force Collection:  0.44999999999999996
 Dem Use of Force Collection:  1
 ``
 
-The result indicates that, on a scale of 0 to 1, the Republican Police Reform bill supports use of force data collection at 0.45 while the Democratic Police Reform Bill supports use of force data collection fully at 1. 
+The result indicates that, on a scale of 0 to 1, the Republican Police Reform bill supports use of force data collection at 0.45 while the Democratic Police Reform Bill supports use of force data collection fully at 1. Note that the terms1 list is empty since there is extensive evidence in both bills on this topic. 
 
 Based on reading each of the bills thoroughly, this result is accurate, along with most of the restuls for both issues. 
 
 
 ### Future Work
 
-The next step is to incorporate this method and code into an accessible platform, such as a website with visualizations. The goal of this project is to protect social choice mechanisms, so the public needs to have easy access to these findings. 
+The next step is to incorporate this method and code into an accessible platform, such as a website, with visualizations. The goal of this project is to protect social choice mechanisms, so the public needs to have easy access to these findings. 
 
 Another avenue is to make the terms lists and topics automatically encoded instead of manually determining the best words to search for. This may be accomplished through parsing bulk data of bills and creating topic lists and key words. 
