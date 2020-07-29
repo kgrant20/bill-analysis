@@ -14,7 +14,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 
 
 #read in data
-f = open("repubBill.txt", "r")
+f = open("repubpolBill.txt", "r")
 reptxt = ""
 for x in f:
     reptxt += x
@@ -29,7 +29,7 @@ reptxt
 # In[9]:
 
 
-g = open("demBill.txt", "r")
+g = open("dempolBill.txt", "r")
 demtxt = ""
 for x in g:
     demtxt += x
