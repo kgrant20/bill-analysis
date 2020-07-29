@@ -12,7 +12,7 @@ We then manually crafted a list of the topics involved in police reform, and add
 
 The list of topics for each police reform bill, as well as the unifying topic list, is under police_reform_bill_list.txt.
 
-We also applied this approach to gun violence bills. The list of topics for those bills is under gun_violence_bill_list.txt.
+We also applied this approach to gun violence bills. The Democratic bill can be found here: https://www.congress.gov/bill/116th-congress/house-bill/5717/text?format=txt and the Repbulican bill can be found here: https://www.congress.gov/bill/116th-congress/senate-bill/1519/text?q=%7B%22search%22%3A%5B%22protecting+communities%22%5D%7D&r=7&s=1. The list of topics for those bills is under gun_violence_bill_list.txt.
 
 ### Extraction Method
 
@@ -55,7 +55,7 @@ Dem Use of Force Collection:  1
 
 The result indicates that, on a scale of 0 to 1, the Republican Police Reform bill supports use of force data collection at 0.45 while the Democratic Police Reform Bill supports use of force data collection fully at 1. 
 
-Based on reading each of the bills thoroughly, this result is accurate as well as most of the restuls for both issues. 
+Based on reading each of the bills thoroughly, this result is accurate, along with most of the restuls for both issues. 
 
 
 ### Future Work
