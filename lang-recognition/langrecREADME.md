@@ -18,13 +18,19 @@ We also applied this approach to gun violence bills. The list of topics for thos
 
 The extraction method created is under extractionMethod.py. 
 
+#### Getting Started
+
 The code for police reform bill extraction is under police_act_extraction.py. Before running that code, the bill text needs to be downlaoded. You can download the original bill texts, dempolbill.txt and repubpolbill.txt, and apply the clean_text.py code in the python file incorporated from the BillSum github, sourced here https://github.com/FiscalNote/BillSum. Or, you can download the clean bill texts, cleanpoldem.txt and cleanpolrepub.txt. 
 
 The same applies for the gun violence data. The code for gun violence bill extraction is under gun_violence_extraction.py.  
 
+#### Method Explanation 
+ 
+The method has four parameters: sentences, topic, terms1, and terms2. 'sentences' is a list of sentences that makes up the bill text after cleaning. 'topic' is the overall topic to parse for, such as 'de-escalation' for the issue of de-escalation training. 'terms1' is a list of terms that carry more weight when present, and 'terms2' is a list of terms that carry less weight than terms1 but still contribute to the score. 
 
-### Method Explanation 
+First, the sentences list is parsed to find all "relevant sentences,"  or any sentence with the 'topic' present. Then, the revelant sentences are parsed to search for the presence of a word from terms1 or terms2 and the score increases by 0.5 and 0.05 respectively. To increase accuracy, the method also parses the sentences preceeding and succeeding a relevant sentence, as long as it is not already listed in the relevant sentences. Finally, a score can be reduced if on of the following words are present in the relevant sentences: ['except','sensitive','unless','limit']. These words result in a reduction because of their tendency to coincide with a lack of support for an issue. 
 
+It is worth noting that the terms1 list has a significantly large weight of 0.5 in comparison to 0.05. This is because there are often instances where there is not enough text on an issue to indicate full support, yet the writing of the bill succinctly established full support. An example is a 'banning'. Many bills include a ban of some sort, which does not always require an extensive description. The ban is estbalished and not written about again. Therefore, a word such as 'ban' may belong in terms1, and any issue lacking extensive textual evidence may require more words entered into the terms1 list. 
 
 
 ### Findings and Future Work 
