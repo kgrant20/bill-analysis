@@ -1,4 +1,3 @@
-# In[78]:
 
 
 #Use of Force Data Collection
@@ -9,8 +8,6 @@ DforceResult = generalBinaryAttribute4(sentencesDem, 'use of force', [],forceTer
 print('Dem Use of Force Collection: ', DforceResult)
 
 
-# In[146]:
-
 
 #data avilability
 availabilityTerms = ['public','review','available','access','release']
@@ -19,8 +16,6 @@ print('Repub Data Availability: ', RAvailabilityResult)
 DAvailabilityResult = generalBinaryAttribute4(sentencesDem, 'data', [], availabilityTerms)
 print('Dem Data Availability: ', DAvailabilityResult)
 
-
-# In[82]:
 
 
 #data retention 
@@ -31,8 +26,6 @@ DretentionResult = generalBinaryAttribute4(sentencesDem, 'retention', [], retent
 print('Dem Data Retention: ', DretentionResult)
 
 
-# In[83]:
-
 
 #body-worn cameras required
 cameraTerms = ['require','car','video','audio','activate']
@@ -41,8 +34,6 @@ print('Repub Camera Requirement: ', RCameraResult)
 DCameraResult = generalBinaryAttribute4(sentencesDem, 'camera', [], cameraTerms)
 print('Dem Camera Requirement: ', DCameraResult)
 
-
-# In[90]:
 
 
 #anti-fraud provisions 
@@ -53,8 +44,6 @@ DFraudResult = generalBinaryAttribute4(sentencesDem, 'report', [], fraudTerms)
 print('Dem Fraud Requirement: ', DFraudResult)
 
 
-# In[39]:
-
 
 #whistleblowers 
 whistTerms = ['authorize','right','disclose']
@@ -62,9 +51,6 @@ RWhistResult = generalBinaryAttribute4(sentencesRepub, 'release', [],whistTerms)
 print('Repub Whistleblower Protection: ', RWhistResult)
 DWhistResult = generalBinaryAttribute4(sentencesDem, 'release', [],whistTerms)
 print('Dem Whistleblower Protection: ', DWhistResult)
-
-
-# In[95]:
 
 
 #requirement to intervene 
@@ -76,8 +62,6 @@ DInterveneResult = generalBinaryAttribute4(sentencesDem, 'intervene', interveneT
 print('Dem Intervene Requirement: ', DInterveneResult)
 
 
-# In[96]:
-
 
 #Accountability
 #Enforcement of compliance
@@ -88,8 +72,6 @@ DEnforcementResult = generalBinaryAttribute4(sentencesDem, 'comply', [],enforcem
 print('Dem Compliance Enforcement: ', DEnforcementResult)
 
 
-# In[97]:
-
 
 #handling/investigating reports of abuse 
 reportsTerms = ['retain','review','investigat','maintain','record','report','force','retention']
@@ -99,7 +81,6 @@ DreportsResult = generalBinaryAttribute4(sentencesDem, 'incident', [],reportsTer
 print('Dem Handling Reports: ', DreportsResult)
 
 
-# In[67]:
 
 
 #qualified immunity restriction 
@@ -111,7 +92,6 @@ DimmunityResult = generalBinaryAttribute4(sentencesDem, 'immunity', immunityTerm
 print('Dem Qualified Immunity: ', DimmunityResult)
 
 
-# In[68]:
 
 
 #restricting chokeholds 
@@ -123,7 +103,6 @@ DChokeholdResult = generalBinaryAttribute4(sentencesDem, 'chokehold', chokeholdT
 print('Dem Restricting Chokeholds: ', DChokeholdResult)
 
 
-# In[102]:
 
 
 #restricting use of force
@@ -135,8 +114,6 @@ DlessforceResult = generalBinaryAttribute4(sentencesDem, 'use of force', lessfor
 print('Dem Restricting Use of Force: ', DlessforceResult)
 
 
-# In[74]:
-
 
 #no-knock warrant banning 
 warrantTerms1 = ['ban','prohibit']
@@ -147,7 +124,6 @@ DWarrantResult = generalBinaryAttribute4(sentencesDem, 'no-knock warrant', warra
 print('Dem non-knock warrant restrictions: ', DWarrantResult)
 
 
-# In[75]:
 
 
 #lynching federal crime 
@@ -157,8 +133,6 @@ print('Repub no-knock warrant restrictions: ', RlynchResult)
 DlynchResult = generalBinaryAttribute4(sentencesDem, 'lynching', lynchTerms,[])
 print('Dem non-knock warrant restrictions: ', DlynchResult)
 
-
-# In[113]:
 
 
 #hiring background requirements *dem should be higher
@@ -170,9 +144,6 @@ DhireResult = generalBinaryAttribute4(sentencesDem, 'hiring', hireTerms1, hireTe
 print('Dem Hiring Background Check: ', DhireResult)
 
 
-# In[114]:
-
-
 #hiring diversity requirements
 divTerms = ['diverse','diversity','communit','represent']
 RdivResult = generalBinaryAttribute4(sentencesRepub, 'hiring', [], divTerms)
@@ -180,8 +151,6 @@ print('Repub Hiring Diversity Requirements: ', RdivResult)
 DdivResult = generalBinaryAttribute4(sentencesDem, 'hiring', [], divTerms)
 print('Dem Hiring Diversity Requirements: ', DdivResult)
 
-
-# In[115]:
 
 
 #TRAINING
@@ -193,8 +162,6 @@ DforcetrainResult = generalBinaryAttribute4(sentencesDem, 'use of force', [] , f
 print('Dem use of force training: ', DforcetrainResult)
 
 
-# In[130]:
-
 
 #de-escalation training
 deecsTerms1 = ['training','effort']
@@ -205,8 +172,6 @@ DdeescResult = generalBinaryAttribute4(sentencesDem, 'de-escalat', deecsTerms1,d
 print('Dem de-escalation training: ', DdeescResult)
 
 
-# In[132]:
-
 
 #anti-descrimmination training 
 antidescTerms1 = ['training']
@@ -216,8 +181,6 @@ print('Repub anti-descrimmination training: ', RantidescResult)
 DantidescResult = generalBinaryAttribute4(sentencesDem, 'bias', antidescTerms1, antidescTerms)
 print('Dem anti-descrimmination training: ', DantidescResult)
 
-
-# In[144]:
 
 
 #requirements for victim services 
