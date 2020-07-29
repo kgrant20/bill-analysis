@@ -4,7 +4,7 @@ The intent of this code is to provide an unbiased source on political issues to 
 
 ## Research Project Progress
 
-So far, this research project involved 3 attempts at understanding bill recognition methods:
+So far, this research project involves 3 attempts at understanding bill recognition methods:
 
 1. LDA Topic Modeling
 2. Automatic Text Summarization
