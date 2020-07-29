@@ -1,6 +1,6 @@
 # bill-analysis
 
-The intent of this code is to provide an unbiased source on political issues to the public. Spepcifically, this code focuses on mapping bills to complex issues and determining a bill's support for subtopics within the issue.
+The intent of this project is to provide an unbiased source on political issues to the public. Spepcifically, this code focuses on mapping bills to complex issues and determining a bill's support for subtopics within the issue.
 
 ## Research Project Progress
 
