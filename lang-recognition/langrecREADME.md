@@ -34,3 +34,19 @@ It is worth noting that the terms1 list has a significantly large weight of 0.5 
 
 
 ### Findings and Future Work 
+
+An example query and result:
+``
+#Use of Force Data Collection
+forceTerms = ['collect','data','report','description']
+RforceResult = generalBinaryAttribute4(sentencesRepub, 'use of force', [], forceTerms)
+print('Repub Use of Force Collection: ', RforceResult)
+DforceResult = generalBinaryAttribute4(sentencesDem, 'use of force', [],forceTerms)
+print('Dem Use of Force Collection: ', DforceResult)
+``
+``
+{'collect': 2, 'data': 2, 'report': 5, 'description': 0}
+Repub Use of Force Collection:  0.44999999999999996
+{'collect': 8, 'data': 8, 'report': 11, 'description': 2}
+Dem Use of Force Collection:  1
+``
