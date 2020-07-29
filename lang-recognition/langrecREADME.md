@@ -4,7 +4,7 @@ The third approach to obtain a descriptive summary of a bill with a variable inv
 
 The approach involves manually identifying the key issues within a topic and the key words to identify support with those issues, as well as key words to identify less support with those issues. 
 
-## For example
+#### For example
 
 We first looked at two police reform bills, one drafted by the Republicans in the Senate found here: https://www.scott.senate.gov/imo/media/doc/JUSTICEActText.pdf and one drafted by the Democrats in the House fo Representatives found here : https://judiciary.house.gov/uploadedfiles/justice_in_policing_act_of_2020.pdf?utm_campaign=2927-519
 
