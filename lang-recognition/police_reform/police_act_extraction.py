@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[5]:
 
 
 import numpy as np
@@ -9,8 +8,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 get_ipython().run_line_magic('matplotlib', 'inline')
 
-
-# In[7]:
 
 
 #read in data
@@ -20,28 +17,10 @@ for x in f:
     reptxt += x
 
 
-# In[8]:
-
-
-reptxt
-
-
-# In[9]:
-
-
 g = open("dempolBill.txt", "r")
 demtxt = ""
 for x in g:
     demtxt += x
-
-
-# In[10]:
-
-
-demtxt
-
-
-# In[11]:
 
 
 #clean data (code from billsum paper)
@@ -50,9 +29,6 @@ import os
 import pandas as pd
 import pickle
 import re
-
-
-# In[12]:
 
 
 def replace_semicolon(text, threshold=10):
@@ -91,8 +67,6 @@ FIX_PERIOD = re.compile('\.([A-Za-z])')
 
 SECTION_HEADER_RE = re.compile('SECTION [0-9]{1,2}\.|\nSEC\.* [0-9]{1,2}\.|Sec\.* [0-9]{1,2}\.')
 
-
-# In[13]:
 
 
 def clean_text(text):
@@ -155,14 +129,10 @@ def clean_text(text):
     return text
 
 
-# In[14]:
 
 
 clean_reptxt = clean_text(reptxt)
 
-
-
-# In[16]:
 
 
 clean_demtxt = clean_text(demtxt)
@@ -172,7 +142,6 @@ clean_demtxt = clean_text(demtxt)
 
 # ## Extract Values of Attributes
 
-# In[18]:
 
 
 with open('cleanrepub.txt') as f:
@@ -180,8 +149,6 @@ with open('cleanrepub.txt') as f:
 
 sentencesRepub = re.split(r' *[\.\?!][\'"\)\]]* *', text)
 
-
-# In[19]:
 
 
 with open('cleandem.txt') as f:
@@ -191,8 +158,6 @@ sentencesDem = re.split(r' *[\.\?!][\'"\)\]]* *', text)
 
 
 # #### generalized function
-
-# In[66]:
 
 
 #2 terms list, ranked
