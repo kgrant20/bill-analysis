@@ -57,10 +57,6 @@ The result indicates that, on a scale of 0 to 1, the Republican Police Reform bi
 
 Based on reading each of the bills thoroughly, this result is accurate as well as most of the restuls for both issues. 
 
-Here is a visualization of the transparency results from police reform bills. 
-
-file:///Users/Katie/Desktop/Screen%20Shot%202020-07-29%20at%2011.34.08%20AM.png
-
 
 ### Future Work
 
