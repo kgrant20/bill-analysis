@@ -1,47 +1,19 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
-
-
-# In[2]:
-
 
 #read in data
-f = open("repubgunbill.txt", "r")
+f = open("repubgunbill.txt", "r") #replace with desired bill text
 reptxt = ""
 for x in f:
     reptxt += x
 
 
-# In[3]:
-
-
-reptxt
-
-
-# In[4]:
-
-
-g = open("demgunbill.txt", "r")
+g = open("demgunbill.txt", "r") #replace with desired bill text
 demtxt = ""
 for x in g:
     demtxt += x
 
-
-# In[5]:
-
-
-demtxt
-
-
-# In[6]:
 
 
 #clean data (code from billsum paper)
@@ -50,9 +22,6 @@ import os
 import pandas as pd
 import pickle
 import re
-
-
-# In[7]:
 
 
 def replace_semicolon(text, threshold=10):
@@ -91,8 +60,6 @@ FIX_PERIOD = re.compile('\.([A-Za-z])')
 
 SECTION_HEADER_RE = re.compile('SECTION [0-9]{1,2}\.|\nSEC\.* [0-9]{1,2}\.|Sec\.* [0-9]{1,2}\.')
 
-
-# In[8]:
 
 
 def clean_text(text):
@@ -155,45 +122,24 @@ def clean_text(text):
     return text
 
 
-# In[9]:
-
-
 clean_reptxt = clean_text(reptxt)
-
-
-# In[10]:
-
-
-clean_reptxt
-
-
-# In[11]:
 
 
 clean_demtxt = clean_text(demtxt)
 
 
-# In[12]:
-
-
-clean_demtxt
-
 
 # ## Extract Values of Attributes
 
-# In[14]:
 
-
-with open('cleanrepubgun.txt') as f:
+with open('cleanrepubgun.txt') as f: #replace with desired bill text
     text = f.read()
 
 sentencesRepub = re.split(r' *[\.\?!][\'"\)\]]* *', text)
 
 
-# In[15]:
 
-
-with open('cleandemgun.txt') as f:
+with open('cleandemgun.txt') as f: #replace with desired bill text
     text = f.read()
 
 sentencesDem = re.split(r' *[\.\?!][\'"\)\]]* *', text)
@@ -201,7 +147,6 @@ sentencesDem = re.split(r' *[\.\?!][\'"\)\]]* *', text)
 
 # #### generalized function
 
-# In[16]:
 
 
 #2 terms list, ranked
@@ -280,156 +225,4 @@ def generalBinaryAttribute4(sentences, topic, terms1, terms2):
     
     return score
 
-
-# In[49]:
-
-
-#data avilability
-availabilityTerms = ['review','available','require','allow','access']
-RAvailabilityResult = generalBinaryAttribute4(sentencesRepub, 'information', [], availabilityTerms)
-print('Repub Data Availability: ', RAvailabilityResult)
-DAvailabilityResult = generalBinaryAttribute4(sentencesDem, 'information', [], availabilityTerms)
-print('Dem Data Availability: ', DAvailabilityResult)
-
-
-# In[54]:
-
-
-#Federal/violation record Collection
-forceTerms = ['submit','available','consistent','collect','report','description','submit','provide']
-RforceResult = generalBinaryAttribute4(sentencesRepub, 'information', [], forceTerms)
-print('Repub Federal record Collection: ', RforceResult)
-DforceResult = generalBinaryAttribute4(sentencesDem, 'information', [],forceTerms)
-print('Dem Federal record Collection: ', DforceResult)
-
-
-# In[61]:
-
-
-#data retention 
-retentionTerms = ['annual','require','year','consistent','database','maintain']
-RetentionResult = generalBinaryAttribute4(sentencesRepub, 'record', [], retentionTerms)
-print('Repub Data Retention: ', RetentionResult)
-DretentionResult = generalBinaryAttribute4(sentencesDem, 'record', [], retentionTerms)
-print('Dem Data Retention: ', DretentionResult)
-
-
-# In[70]:
-
-
-#anti-fraud provisions 
-fraudTerms1 = ['false','penalty']
-fraudTerms = ['prohibit','lying','risk protection','denial']
-RFraudResult = generalBinaryAttribute4(sentencesRepub, 'report', fraudTerms1, fraudTerms)
-print('Repub Fraud Requirement: ', RFraudResult)
-DFraudResult = generalBinaryAttribute4(sentencesDem, 'report', fraudTerms1, fraudTerms)
-print('Dem Fraud Requirement: ', DFraudResult)
-
-
-# In[78]:
-
-
-#Accountability
-#increasing Federal prosecution of gun violence
-enforcementTerms = ['prosecute','investigat','penalt','ban','imprisonment','fine','revoke','seizure']
-REnforcementResult = generalBinaryAttribute4(sentencesRepub, 'violation', [],enforcementTerms)
-print('Repub Compliance Enforcement: ', REnforcementResult)
-DEnforcementResult = generalBinaryAttribute4(sentencesDem, 'violation', [],enforcementTerms)
-print('Dem Compliance Enforcement: ', DEnforcementResult)
-
-
-# In[94]:
-
-
-#straw purchasing
-enforcementTerms1 = ['prohibit','illegal']
-enforcementTerms = ['unlawful','investigat','penalt','ban','offense','violat']
-REnforcementResult = generalBinaryAttribute4(sentencesRepub, 'straw', enforcementTerms1, enforcementTerms)
-print('Repub Straw Enforcement: ', REnforcementResult)
-DEnforcementResult = generalBinaryAttribute4(sentencesDem, 'Straw', enforcementTerms1, enforcementTerms)
-print('Dem Straw Enforcement: ', DEnforcementResult)
-
-
-# In[95]:
-
-
-#trafficking **dem uses various wording to describe
-enforcementTerms1 = ['prohibit','illegal']
-enforcementTerms = ['unlawful','investigat','penalt','ban','offense','violat']
-REnforcementResult = generalBinaryAttribute4(sentencesRepub, 'traffick', enforcementTerms1, enforcementTerms)
-print('Repub Straw Enforcement: ', REnforcementResult)
-DEnforcementResult = generalBinaryAttribute4(sentencesDem, 'traffick', enforcementTerms1, enforcementTerms)
-print('Dem Straw Enforcement: ', DEnforcementResult)
-
-
-# In[96]:
-
-
-#assault weapons ban 
-enforcementTerms1 = ['ban','prohibit','illegal']
-enforcementTerms = ['unlawful','investigat','penalt','restrict','offense','violat']
-REnforcementResult = generalBinaryAttribute4(sentencesRepub, 'assault weapon', enforcementTerms1, enforcementTerms)
-print('Repub Straw Enforcement: ', REnforcementResult)
-DEnforcementResult = generalBinaryAttribute4(sentencesDem, 'assault weapon', enforcementTerms1, enforcementTerms)
-print('Dem Straw Enforcement: ', DEnforcementResult)
-
-
-# In[102]:
-
-
-#silencer/muffler ban
-enforcementTerms1 = ['prohibit','illegal','ban']
-enforcementTerms = ['silencer','muffler','penalt']
-REnforcementResult = generalBinaryAttribute4(sentencesRepub, 'silencer', enforcementTerms1, enforcementTerms)
-print('Repub Straw Enforcement: ', REnforcementResult)
-DEnforcementResult = generalBinaryAttribute4(sentencesDem, 'Silencer', enforcementTerms1, enforcementTerms)
-print('Dem Straw Enforcement: ', DEnforcementResult)
-
-
-# In[106]:
-
-
-#DEALER REFORM
-#shop security
-reportsTerms = ['safe','secure','investigat','maintain','record','report','force','licensed dealer']
-RreportsResult = generalBinaryAttribute4(sentencesRepub, 'dealer', [],reportsTerms)
-print('Repub Handling Reports: ', RreportsResult)
-DreportsResult = generalBinaryAttribute4(sentencesDem, 'dealer', [],reportsTerms)
-print('Dem Handling Reports: ', DreportsResult)
-
-
-# In[113]:
-
-
-#DEALER REFORM
-#employee check
-reportsTerms = ['safe','secure','background check','qualified','test','report','enforce','licensed dealer']
-RreportsResult = generalBinaryAttribute4(sentencesRepub, 'employ', [],reportsTerms)
-print('Repub Handling Reports: ', RreportsResult)
-DreportsResult = generalBinaryAttribute4(sentencesDem, 'employ', [],reportsTerms)
-print('Dem Handling Reports: ', DreportsResult)
-
-
-# In[120]:
-
-
-#INDUSTRY REFORM
-# firearm transport / employee protection
-reportsTerms = ['safe','secure','protect','qualified','test','authorize','enforce','lawful','violat']
-RreportsResult = generalBinaryAttribute4(sentencesRepub, 'transport', [],reportsTerms)
-print('Repub Handling Reports: ', RreportsResult)
-DreportsResult = generalBinaryAttribute4(sentencesDem, 'transport', [],reportsTerms)
-print('Dem Handling Reports: ', DreportsResult)
-
-
-# In[124]:
-
-
-#gun violence study
-lessforceTerms1 = ['study', 'research']
-lessforceTerms2 = ['alternatives','intervention','reduction','program']
-RlessforceResult = generalBinaryAttribute4(sentencesRepub, 'violence', lessforceTerms1, lessforceTerms2)
-print('Repub Restricting Use of Force: ', RlessforceResult)
-DlessforceResult = generalBinaryAttribute4(sentencesDem, 'violence', lessforceTerms1, lessforceTerms2)
-print('Dem Restricting Use of Force: ', DlessforceResult)
 
