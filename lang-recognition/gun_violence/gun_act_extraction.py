@@ -226,3 +226,5 @@ def generalBinaryAttribute4(sentences, topic, terms1, terms2):
     return score
 
 
+#code with police reform queries and term lists is under gun_violence_methodcalls.py
+#just the term lists is under term_lists.py
