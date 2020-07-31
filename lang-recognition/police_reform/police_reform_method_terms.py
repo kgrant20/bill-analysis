@@ -1,4 +1,4 @@
-
+##this python file contains the query's and term lists for police reform
 
 #Use of Force Data Collection
 forceTerms = ['collect','data','report','description']
