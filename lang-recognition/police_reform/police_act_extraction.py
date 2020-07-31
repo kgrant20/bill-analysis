@@ -2,22 +2,14 @@
 # coding: utf-8
 
 
-
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-get_ipython().run_line_magic('matplotlib', 'inline')
-
-
-
 #read in data
-f = open("repubpolBill.txt", "r")
+f = open("repubpolBill.txt", "r") #replace with desired bill text file
 reptxt = ""
 for x in f:
     reptxt += x
 
 
-g = open("dempolBill.txt", "r")
+g = open("dempolBill.txt", "r") #replace with desired bill text file
 demtxt = ""
 for x in g:
     demtxt += x
@@ -144,14 +136,14 @@ clean_demtxt = clean_text(demtxt)
 
 
 
-with open('cleanrepub.txt') as f:
+with open('cleanrepub.txt') as f: #replace with desired clean bill text file
     text = f.read()
 
 sentencesRepub = re.split(r' *[\.\?!][\'"\)\]]* *', text)
 
 
 
-with open('cleandem.txt') as f:
+with open('cleandem.txt') as f: #replace with desired clean bill text file
     text = f.read()
 
 sentencesDem = re.split(r' *[\.\?!][\'"\)\]]* *', text)
@@ -237,4 +229,5 @@ def generalBinaryAttribute4(sentences, topic, terms1, terms2):
     return score
 
 
-
+#term lists is under 
+#code with police reform is under 
